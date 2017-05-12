@@ -43,6 +43,6 @@ RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('samr')" | R --
 RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('hugene20stprobeset.db')" | R --vanilla
 RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('hgu133plus2.db')" | R --vanilla
 RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('corpcor')" | R --vanilla
-
+RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('plotly')" | R --vanilla
 WORKDIR /home/jovyan
 ADD . /home/jovyan
