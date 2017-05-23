@@ -1,1 +1,34 @@
+CCLE_Expression_2012-09-29.res	
+#-------------------------------------
+The CCLE dataset file is downloaded from Cancer Cell Line Encyclopedia page, with the following infromation:
+      RMA-normalized mRNA expression data. (Affymetrix annotations)
+      17-Oct-2012
+      589.6MB
+      
 
+E_MTAB_2706_sdrf.txt
+VSD_Entrez_in_landmark.csv
+#-------------------------------------
+These two files are for RNAseq dataset.
+Downloaded from https://www.ebi.ac.uk/arrayexpress/experiments/E-MTAB-2706/
+
+
+en_3_pert_types_combined.tsv
+#-------------------------------------
+LINCS L1000 dataset. 
+Downloaded from L1K++ pipline.
+
+
+#---------------------------------------------------------------------
+More information about the data sources included in the notebook.
+#---------------------------------------------------------------------
+
+
+
+The following .RData files are to used in loading the filtered data in Jupyter notebook 
+in case the user dosen't want to run the processing scripts
+#--------------------------------------------------------------
+scaled.CCLE.res.inters.RData	Add files via upload	13 days ago
+scaled.L1K.inters.RData	Add files via upload	13 days ago
+scaled.L1K.inters.ax.RData	Add files via upload	13 days ago
+scaled.ax.inters.RData
