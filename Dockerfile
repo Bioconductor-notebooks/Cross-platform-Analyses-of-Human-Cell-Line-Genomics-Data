@@ -44,5 +44,17 @@ RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('hugene20stprob
 RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('hgu133plus2.db')" | R --vanilla
 RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('corpcor')" | R --vanilla
 RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('plotly')" | R --vanilla
+RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('cluster')" | R --vanilla
+RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('stringr')" | R --vanilla
+RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('base')" | R --vanilla
+RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('stats')" | R --vanilla
+RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('mclust')" | R --vanilla
+RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('bios2mds')" | R --vanilla
+RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('rgl')" | R --vanilla
+RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('ape')" | R --vanilla
+RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('ggdendro')" | R --vanilla
+RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('heatmaply')" | R --vanilla
+RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('sparcl')" | R --vanilla
+RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('factoextra')" | R --vanilla
 WORKDIR /home/jovyan
 ADD . /home/jovyan
