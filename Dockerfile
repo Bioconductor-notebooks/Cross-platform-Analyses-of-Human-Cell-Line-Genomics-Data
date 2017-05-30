@@ -41,7 +41,6 @@ RUN jupyter nbextension enable move_selected_cells/main
 RUN jupyter nbextension enable skip-traceback/main
 RUN jupyter nbextension enable highlight_selected_word/main
 RUN jupyter nbextension enable search-replace/main
-RUN jupyter nbextension enable snippets/main
 RUN jupyter nbextension enable varInspector/main
 
 
