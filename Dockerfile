@@ -58,6 +58,8 @@ RUN conda install --quiet --yes \
     'r-rcurl=1.95*' \
     'r-xml=3.98_1.5' \
     'r-crayon=1.3*' && conda clean -tipsy
+    
+RUN conda update -c r r-irkernel
 
 RUN echo "c.NotebookApp.token = u''" >> $HOME/.jupyter/jupyter_notebook_config.py
 RUN echo "c.NotebookApp.iopub_data_rate_limit=1e22" >> $HOME/.jupyter/jupyter_notebook_config.py
