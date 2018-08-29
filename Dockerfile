@@ -5,7 +5,7 @@ LABEL authors="Reem Almugbel, Abeer Almutairy"
 USER root
 
 # Customized using Jupyter Notebook R Stack https://github.com/jupyter/docker-stacks/tree/master/r-notebook
-
+RUN pip install --upgrade pip
 
 # R pre-requisites
 RUN apt-get update && \
@@ -39,7 +39,6 @@ RUN jupyter nbextension enable execute_time/ExecuteTime
 RUN jupyter nbextension enable gist_it/main
 RUN jupyter nbextension enable move_selected_cells/main
 RUN jupyter nbextension enable skip-traceback/main
-#RUN jupyter nbextension enable highlight_selected_word/main
 RUN jupyter nbextension enable search-replace/main
 RUN jupyter nbextension enable varInspector/main
 
@@ -64,7 +63,6 @@ RUN conda update -c r r-irkernel
 RUN echo "c.NotebookApp.token = u''" >> $HOME/.jupyter/jupyter_notebook_config.py
 RUN echo "c.NotebookApp.iopub_data_rate_limit=1e22" >> $HOME/.jupyter/jupyter_notebook_config.py
 
-RUN pip install --upgrade pip
 RUN pip install matplotlib
 
 RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('plotly')" | R --vanilla
