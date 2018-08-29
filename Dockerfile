@@ -1,6 +1,6 @@
 FROM jupyter/r-notebook:599db13f9123
 
-MAINTAINER Reem Almugbel <reem2@uw.edu>
+MAINTAINER Abeer Almutairy <abeer1uw@gmail.com>
 LABEL authors="Reem Almugbel, Abeer Almutairy"
 USER root
 
@@ -21,8 +21,7 @@ USER $NB_USER
 
 RUN conda config --add channels r
 RUN conda config --add channels bioconda
-RUN conda install -c conda-forge jupyter_contrib_nbextensions
-#RUN conda install jupyter_contrib_nbextensions
+RUN conda install jupyter_contrib_nbextensions
 RUN jupyter nbextension enable toc2/main
 RUN jupyter nbextension enable collapsible_headings/main
 RUN jupyter nbextension enable dragdrop/main
