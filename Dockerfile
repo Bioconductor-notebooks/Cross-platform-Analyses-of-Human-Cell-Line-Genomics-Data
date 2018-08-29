@@ -35,6 +35,8 @@ RUN conda install --quiet --yes \
     'r-xml=3.98_1.5' \
     'r-crayon=1.3*' && conda clean -tipsy
 
+RUN conda install -c conda-forge readline=6.2
+RUN conda upgrade -c conda-forge readline
 RUN conda install -c conda-forge jupyter_contrib_nbextensions
 RUN conda install jupyter_contrib_nbextensions
 RUN jupyter nbextension enable toc2/main
