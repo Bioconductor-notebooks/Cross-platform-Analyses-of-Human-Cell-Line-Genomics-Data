@@ -1,10 +1,11 @@
 FROM jupyter/r-notebook:599db13f9123
 
-MAINTAINER Abeer Almutairy <abeer1uw@gmail.com>
+MAINTAINER Reem Almugbel <reem2@uw.edu>
 LABEL authors="Reem Almugbel, Abeer Almutairy"
 USER root
 
 # Customized using Jupyter Notebook R Stack https://github.com/jupyter/docker-stacks/tree/master/r-notebook
+
 
 # R pre-requisites
 RUN apt-get update && \
@@ -20,6 +21,30 @@ USER $NB_USER
 
 RUN conda config --add channels r
 RUN conda config --add channels bioconda
+RUN conda install -c conda-forge jupyter_contrib_nbextensions
+RUN jupyter nbextension enable toc2/main
+RUN jupyter nbextension enable collapsible_headings/main
+RUN jupyter nbextension enable dragdrop/main
+RUN jupyter nbextension enable highlighter/highlighter
+RUN jupyter nbextension enable printview/main
+RUN jupyter nbextension enable runtools/main
+RUN jupyter nbextension enable codefolding/main
+RUN jupyter nbextension enable comment-uncomment/main
+RUN jupyter nbextension enable equation-numbering/main
+RUN jupyter nbextension enable freeze/main
+RUN jupyter nbextension enable toggle_all_line_numbers/main
+RUN jupyter nbextension enable spellchecker/main
+RUN jupyter nbextension enable codefolding/edit
+RUN jupyter nbextension enable execute_time/ExecuteTime
+RUN jupyter nbextension enable gist_it/main
+RUN jupyter nbextension enable move_selected_cells/main
+RUN jupyter nbextension enable skip-traceback/main
+RUN jupyter nbextension enable highlight_selected_word/main
+RUN jupyter nbextension enable search-replace/main
+RUN jupyter nbextension enable snippets/main
+RUN jupyter nbextension enable varInspector/main
+
+
 RUN conda install --quiet --yes \
     'r-base=3.3.2' \
     'r-irkernel=0.7*' \
@@ -34,33 +59,6 @@ RUN conda install --quiet --yes \
     'r-rcurl=1.95*' \
     'r-xml=3.98_1.5' \
     'r-crayon=1.3*' && conda clean -tipsy
-
-RUN conda install -c conda-forge readline=6.2
-RUN conda upgrade -c conda-forge readline
-RUN conda install -c conda-forge jupyter_contrib_nbextensions
-RUN conda install jupyter_contrib_nbextensions
-RUN jupyter nbextension enable toc2/main
-RUN jupyter nbextension enable collapsible_headings/main
-RUN jupyter nbextension enable dragdrop/main
-#RUN jupyter nbextension enable highlighter/highlighter
-RUN jupyter nbextension enable printview/main
-RUN jupyter nbextension enable runtools/main
-RUN jupyter nbextension enable codefolding/main
-RUN jupyter nbextension enable comment-uncomment/main
-RUN jupyter nbextension enable equation-numbering/main
-RUN jupyter nbextension enable freeze/main
-RUN jupyter nbextension enable toggle_all_line_numbers/main
-RUN jupyter nbextension enable spellchecker/main
-RUN jupyter nbextension enable codefolding/edit
-RUN jupyter nbextension enable execute_time/ExecuteTime
-RUN jupyter nbextension enable gist_it/main
-RUN jupyter nbextension enable move_selected_cells/main
-RUN jupyter nbextension enable skip-traceback/main
-RUN jupyter nbextension enable search-replace/main
-RUN jupyter nbextension enable varInspector/main
-
-    
-RUN conda update -c r r-irkernel
 
 RUN echo "c.NotebookApp.token = u''" >> $HOME/.jupyter/jupyter_notebook_config.py
 RUN echo "c.NotebookApp.iopub_data_rate_limit=1e22" >> $HOME/.jupyter/jupyter_notebook_config.py
@@ -90,6 +88,7 @@ RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('heatmaply')" |
 RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('sparcl')" | R --vanilla
 RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('ape')" | R --vanilla
 RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('factoextra')" | R --vanilla
+
 
 WORKDIR /home/jovyan
 ADD . /home/jovyan
