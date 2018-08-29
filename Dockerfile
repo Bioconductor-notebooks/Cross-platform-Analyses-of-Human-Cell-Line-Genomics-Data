@@ -20,7 +20,8 @@ USER $NB_USER
 
 RUN conda config --add channels r
 RUN conda config --add channels bioconda
-
+RUN conda install -c conda-forge readline=6.2
+RUN conda install jupyter_contrib_nbextensions
 RUN jupyter nbextension enable toc2/main
 RUN jupyter nbextension enable collapsible_headings/main
 RUN jupyter nbextension enable dragdrop/main
@@ -40,7 +41,6 @@ RUN jupyter nbextension enable move_selected_cells/main
 RUN jupyter nbextension enable skip-traceback/main
 RUN jupyter nbextension enable search-replace/main
 RUN jupyter nbextension enable varInspector/main
-
 
 RUN conda install --quiet --yes \
     'r-base=3.3.2' \
