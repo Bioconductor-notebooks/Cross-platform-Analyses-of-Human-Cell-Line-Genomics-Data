@@ -89,5 +89,3 @@ RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('ape')" | R --v
 RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('factoextra')" | R --vanilla
 
 
-WORKDIR /home/jovyan
-ADD . /home/jovyan
