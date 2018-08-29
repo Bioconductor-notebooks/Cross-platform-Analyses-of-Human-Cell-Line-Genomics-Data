@@ -5,7 +5,6 @@ LABEL authors="Reem Almugbel, Abeer Almutairy"
 USER root
 
 # Customized using Jupyter Notebook R Stack https://github.com/jupyter/docker-stacks/tree/master/r-notebook
-RUN pip install --upgrade pip
 
 # R pre-requisites
 RUN apt-get update && \
@@ -63,6 +62,7 @@ RUN conda update -c r r-irkernel
 RUN echo "c.NotebookApp.token = u''" >> $HOME/.jupyter/jupyter_notebook_config.py
 RUN echo "c.NotebookApp.iopub_data_rate_limit=1e22" >> $HOME/.jupyter/jupyter_notebook_config.py
 
+RUN pip install --upgrade pip
 RUN pip install matplotlib
 
 RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('plotly')" | R --vanilla
@@ -88,4 +88,5 @@ RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('sparcl')" | R 
 RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('ape')" | R --vanilla
 RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('factoextra')" | R --vanilla
 
-
+WORKDIR /home/jovyan
+ADD . /home/jovyan
