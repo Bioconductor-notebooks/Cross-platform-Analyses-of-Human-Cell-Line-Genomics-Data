@@ -20,7 +20,22 @@ USER $NB_USER
 
 RUN conda config --add channels r
 RUN conda config --add channels bioconda
-RUN conda install -c conda-forge readline=6.2
+RUN conda install --quiet --yes \
+    'r-base=3.3.2' \
+    'r-irkernel=0.7*' \
+    'r-plyr=1.8*' \
+    'r-devtools=1.12*' \
+    'r-shiny=0.14*' \
+    'r-rmarkdown=1.2*' \
+    'r-rsqlite=1.1*' \
+    'r-reshape2=1.4*' \
+    'r-nycflights13=0.2*' \
+    'r-caret=6.0*' \
+    'r-rcurl=1.95*' \
+    'r-xml=3.98_1.5' \
+    'r-crayon=1.3*' && conda clean -tipsy
+
+RUN conda install -c conda-forge jupyter_contrib_nbextensions
 RUN conda install jupyter_contrib_nbextensions
 RUN jupyter nbextension enable toc2/main
 RUN jupyter nbextension enable collapsible_headings/main
@@ -42,20 +57,6 @@ RUN jupyter nbextension enable skip-traceback/main
 RUN jupyter nbextension enable search-replace/main
 RUN jupyter nbextension enable varInspector/main
 
-RUN conda install --quiet --yes \
-    'r-base=3.3.2' \
-    'r-irkernel=0.7*' \
-    'r-plyr=1.8*' \
-    'r-devtools=1.12*' \
-    'r-shiny=0.14*' \
-    'r-rmarkdown=1.2*' \
-    'r-rsqlite=1.1*' \
-    'r-reshape2=1.4*' \
-    'r-nycflights13=0.2*' \
-    'r-caret=6.0*' \
-    'r-rcurl=1.95*' \
-    'r-xml=3.98_1.5' \
-    'r-crayon=1.3*' && conda clean -tipsy
     
 RUN conda update -c r r-irkernel
 
