@@ -69,6 +69,4 @@ RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('factoextra')" 
 WORKDIR /home/jovyan
 ADD . /home/jovyan
 
-
-RUN R CMD BUILD ./sparcl_1.0.3.tar.gz
 RUN R CMD INSTALL ./sparcl_1.0.3.tar.gz
