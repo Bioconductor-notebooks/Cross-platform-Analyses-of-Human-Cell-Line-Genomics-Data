@@ -70,7 +70,7 @@ RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('sparcl')" | R 
 RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('ape')" | R --vanilla
 RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('factoextra')" | R --vanilla
 
-
+ADD . /home/jovyan
 RUN R CMD INSTALL ./sparcl_1.0.3.tar.gz
 
-ADD . /home/jovyan
+
