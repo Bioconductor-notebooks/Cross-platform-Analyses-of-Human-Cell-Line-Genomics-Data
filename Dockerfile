@@ -42,7 +42,7 @@ RUN echo "c.NotebookApp.iopub_data_rate_limit=1e22" >> $HOME/.jupyter/jupyter_no
 RUN pip install --upgrade pip
 RUN pip install matplotlib
 
-RUN R CMD build $HOME/sparcl_1.0.3.tar.gz
+RUN R CMD build sparcl_1.0.3.tar.gz
 
 RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('plotly')" | R --vanilla
 RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('cluster')" | R --vanilla
