@@ -34,8 +34,7 @@ RUN conda install --quiet --yes \
     'r-caret=6.0*' \
     'r-rcurl=1.95*' \
     'r-xml=3.98_1.5' \
-    'r-crayon=1.3*' && conda clean -tipsy \
-    fix-permissions /home/$NB_USER
+    'r-crayon=1.3*' && conda clean -tipsy 
     
 #RUN conda install jupyter_contrib_nbextensions
 RUN echo "c.NotebookApp.token = u''" >> $HOME/.jupyter/jupyter_notebook_config.py
@@ -43,6 +42,9 @@ RUN echo "c.NotebookApp.iopub_data_rate_limit=1e22" >> $HOME/.jupyter/jupyter_no
 
 RUN pip install --upgrade pip
 RUN pip install matplotlib
+
+WORKDIR /home/jovyan
+ADD . /home/jovyan
 
 RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('plotly')" | R --vanilla
 RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('cluster')" | R --vanilla
@@ -67,8 +69,5 @@ RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('sparcl')" | R 
 RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('ape')" | R --vanilla
 RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('factoextra')" | R --vanilla
 
-
-WORKDIR /home/jovyan
-ADD . /home/jovyan
 
 RUN R CMD INSTALL ./sparcl_1.0.3.tar.gz
