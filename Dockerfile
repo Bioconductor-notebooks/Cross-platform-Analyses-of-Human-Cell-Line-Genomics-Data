@@ -16,7 +16,7 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
    
 USER $NB_USER
-
+WORKDIR ${HOME}
 # R packages
 
 RUN conda config --add channels r
@@ -67,6 +67,6 @@ RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('ape')" | R --v
 RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('factoextra')" | R --vanilla
 
 
-#WORKDIR /home/jovyan
+WORKDIR /home/jovyan
 ADD . /home/jovyan
 
