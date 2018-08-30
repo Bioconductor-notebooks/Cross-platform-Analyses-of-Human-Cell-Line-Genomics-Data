@@ -1,4 +1,5 @@
-FROM jupyter/r-notebook:599db13f9123
+FROM jupyter/r-notebook:latest 
+#599db13f9123
 
 MAINTAINER Abeer Almutairy <abeer1uw@gmail.com>
 LABEL authors="Reem Almugbel, Abeer Almutairy"
