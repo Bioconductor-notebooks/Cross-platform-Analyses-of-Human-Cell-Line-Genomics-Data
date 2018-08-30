@@ -17,7 +17,7 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
    
 USER $NB_USER
-WORKDIR ${HOME}
+#WORKDIR ${HOME}
 # R packages
 
 RUN conda config --add channels r
