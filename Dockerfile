@@ -16,7 +16,7 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
    
 USER $NB_USER
-WORKDIR /home/jovyan
+
 #WORKDIR ${HOME}
 # R packages
 
@@ -46,7 +46,7 @@ RUN pip install matplotlib
 
 
 
-
+WORKDIR /home/jovyan
 RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('plotly')" | R --vanilla
 RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('cluster')" | R --vanilla
 RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('stringr')" | R --vanilla
