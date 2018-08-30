@@ -35,7 +35,6 @@ RUN conda install --quiet --yes \
     'r-rcurl=1.95*' \
     'r-xml=3.98_1.5' \
     'r-crayon=1.3*' && conda clean -tipsy \
-    jupyter notebook --generate-config && \
     rm -rf /home/$NB_USER/.cache/yarn && \
     fix-permissions $CONDA_DIR && \
     fix-permissions /home/$NB_USER
