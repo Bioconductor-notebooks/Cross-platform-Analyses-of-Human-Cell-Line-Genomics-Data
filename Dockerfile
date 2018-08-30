@@ -16,6 +16,7 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
    
 USER $NB_USER
+WORKDIR /home/jovyan
 #WORKDIR ${HOME}
 # R packages
 
@@ -43,8 +44,8 @@ RUN echo "c.NotebookApp.iopub_data_rate_limit=1e22" >> $HOME/.jupyter/jupyter_no
 RUN pip install --upgrade pip
 RUN pip install matplotlib
 
-WORKDIR /home/jovyan
-ADD . /home/jovyan
+
+
 
 RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('plotly')" | R --vanilla
 RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('cluster')" | R --vanilla
@@ -71,3 +72,5 @@ RUN echo "source('http://bioconductor.org/biocLite.R'); biocLite('factoextra')" 
 
 
 RUN R CMD INSTALL ./sparcl_1.0.3.tar.gz
+
+ADD . /home/jovyan
